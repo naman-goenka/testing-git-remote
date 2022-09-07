@@ -1,0 +1,30 @@
+pipeline:
+  name: bugbash-07-naman
+  identifier: bugbash07naman
+  projectIdentifier: proj
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: sg
+        identifier: sg
+        description: ""
+        type: Approval
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: qwsdefr
+                  identifier: qwsdefr
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo naman
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
