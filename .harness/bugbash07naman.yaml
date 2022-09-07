@@ -71,3 +71,9 @@ pipeline:
                         value: Sd
                   timeout: 1d
         tags: {}
+    - stage:
+        name: cvbn
+        identifier: cvbn
+        template:
+          templateRef: org.testing_template
+          versionLabel: v2
