@@ -1,0 +1,54 @@
+pipeline:
+  name: test-pip-gitx
+  identifier: testpipgitx
+  projectIdentifier: namangoenka_CD
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: a
+        identifier: a
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Kubernetes
+          service:
+            serviceRef: service
+            serviceInputs:
+              serviceDefinition:
+                type: Kubernetes
+                spec:
+                  artifacts:
+                    primary:
+                      primaryArtifactRef: <+input>
+                      sources: <+input>
+            gitBranch: brnchA
+          environment:
+            environmentRef: env1
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: infra1
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "deploy"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+            rollbackSteps: []
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
