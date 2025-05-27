@@ -52,3 +52,21 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+    - stage:
+        name: gtfd
+        identifier: gtfd
+        tags: {}
+        template:
+          templateRef: account.stgtempgit
+          versionLabel: "1"
+          gitBranch: master-1gitx1-patch
+          templateInputs:
+            type: Deployment
+            spec:
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                infrastructureDefinitions: <+input>
