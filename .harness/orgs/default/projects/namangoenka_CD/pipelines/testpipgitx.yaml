@@ -59,7 +59,6 @@ pipeline:
         template:
           templateRef: account.stgtempgit
           versionLabel: "1"
-          gitBranch: master-1gitx1-patch
           templateInputs:
             type: Deployment
             spec:
