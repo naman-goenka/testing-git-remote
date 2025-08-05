@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: fved
+  identifier: fved
+  orgIdentifier: default
+  projectIdentifier: testNaman
+  environmentRef: testSsh
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: testK8sCI
+    namespace: tyhj
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
