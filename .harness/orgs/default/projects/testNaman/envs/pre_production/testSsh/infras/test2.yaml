@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: test2
+  identifier: test2
+  orgIdentifier: default
+  projectIdentifier: testNaman
+  environmentRef: testSsh
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: testK8sCI
+    namespace: g
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false

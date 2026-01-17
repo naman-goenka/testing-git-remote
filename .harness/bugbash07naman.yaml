@@ -31,46 +31,9 @@ pipeline:
     - stage:
         name: dfg
         identifier: dfg
-        description: ""
-        type: Approval
-        spec:
-          execution:
-            steps:
-              - step:
-                  type: CustomApproval
-                  name: df
-                  identifier: df
-                  spec:
-                    rejectionCriteria:
-                      type: KeyValues
-                      spec:
-                        matchAnyCondition: true
-                        conditions: []
-                    approvalCriteria:
-                      type: KeyValues
-                      spec:
-                        matchAnyCondition: true
-                        conditions:
-                          - key: VAR1
-                            operator: equals
-                            value: Sd
-                    scriptTimeout: 10m
-                    retryInterval: 10s
-                    shell: Bash
-                    onDelegate: true
-                    source:
-                      type: Inline
-                      spec:
-                        script: |-
-                          echo naman
-                          export VAR1 = "Sd"
-                    environmentVariables: []
-                    outputVariables:
-                      - name: VAR1
-                        type: String
-                        value: Sd
-                  timeout: 1d
-        tags: {}
+        template:
+          templateRef: org.cvbnm
+          versionLabel: v2
     - stage:
         name: cvbn
         identifier: cvbn
